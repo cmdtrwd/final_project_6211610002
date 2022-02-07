@@ -1,0 +1,232 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "Alegreya-Sans-SC";
+  src: url("../font/Alegreya-Sans-SC.ttf.woff") format("woff"), url("../font/Alegreya-Sans-SC.ttf.svg#Alegreya-Sans-SC") format("svg"), url("../font/Alegreya-Sans-SC.ttf.eot"), url("../font/Alegreya-Sans-SC.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #2e5d66;
+}
+
+hero {
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  outline: 0;
+  border: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #242d5f;
+  background: linear-gradient(0deg, #242d5f 0%, #2e5d66 100%);
+}
+hero .text {
+  position: absolute;
+  top: 75%;
+}
+hero .text a {
+  font-family: "Alegreya-Sans-SC";
+  color: aliceblue;
+  cursor: pointer;
+  z-index: 8;
+}
+hero .text a h1 {
+  font-size: 20px;
+}
+hero .text a:hover {
+  color: aliceblue;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 500ms ease-in;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(0.0625);
+    opacity: 0;
+  }
+}
+.main {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 3;
+}
+
+#mainPhoto {
+  transform: scale(0.25);
+  transition: 0.5s ease-in-out;
+  position: relative;
+  z-index: 6;
+  opacity: 1;
+}
+
+#secondPhoto {
+  transform: scale(0.35);
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  top: 10vh;
+  left: 32vw;
+  z-index: 5;
+  opacity: 0;
+}
+
+@keyframes fadefirst {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadelast {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.drop {
+  width: 15px;
+  height: 120px;
+  position: absolute;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(90vh);
+  }
+  100% {
+    transform: translateY(90vh);
+  }
+}
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.25));
+  animation: stem 0.5s ease infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted white;
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+
+body.splat-toggle .splat {
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
